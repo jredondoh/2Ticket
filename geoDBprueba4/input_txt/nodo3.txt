@@ -1,0 +1,17 @@
+{"idTicket": "111111111Q", "idEvent": "11114", "valid": "false"}
+{"idTicket": "1111111115", "idEvent": "11111", "valid": "true"}
+{"idTicket": "1111111111", "idEvent": "11113", "valid": "true"}
+{"idTicket": "111111111E", "idEvent": "11111", "valid": "true"}
+{"idTicket": "111111111A", "idEvent": "11112", "valid": "true"}
+{"idTicket": "111111111U", "idEvent": "11114", "valid": "true"}
+{"idTicket": "1111111118", "idEvent": "11112", "valid": "true"}
+{"idTicket": "111111111D", "idEvent": "11114", "valid": "true"}
+{"idTicket": "111111111G", "idEvent": "11111", "valid": "true"}
+{"idTicket": "111111111P", "idEvent": "11112", "valid": "true"}
+{"idTicket": "111111111H", "idEvent": "11112", "valid": "false"}
+{"idTicket": "111111111W", "idEvent": "11113", "valid": "false"}
+{"idTicket": "111111111R", "idEvent": "11111", "valid": "true"}
+{"idTicket": "111111111K", "idEvent": "11114", "valid": "true"}
+{"idTicket": "111111111N", "idEvent": "11113", "valid": "true"}
+{"idTicket": "111111111M", "idEvent": "11114", "valid": "true"}
+{"idTicket": "111111111B", "idEvent": "11113", "valid": "true"}
