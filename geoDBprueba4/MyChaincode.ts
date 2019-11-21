@@ -1,8 +1,24 @@
+/**
+ * @file: MyChaincode.ts
+ * @brief: Clase que proporciona la inicialización e interfaz frente a los nodos secundarios del
+ *         nodo primario.
+ * @author: Jose Redondo Hurtado
+ */
 import { Chaincode, Helpers, NotFoundError, StubHelper } from '@theledger/fabric-chaincode-utils';
 import * as Yup from 'yup';
 
+/**
+ * Clase que proporciona la inicialización e interfaz frente a los nodos secundarios del nodo 
+ * primario.
+ */
 export class MyChaincode extends Chaincode {
 
+    /**
+     * Inicializa la base de datos con la información del nodo primario.
+     * 
+     * @param stubHelper Objeto para comprobar la validez de los argumentos
+     * @param args No usado en este método
+     */
     async initLedger(stubHelper: StubHelper, args: string[]) {
 
         let tixArr = [
@@ -38,6 +54,12 @@ export class MyChaincode extends Chaincode {
         }
     }
 
+    /**
+     * Método para consultar en la base de datos un ticket mediante un idTicket.
+     * 
+     * @param stubHelper Objeto para comprobar la validez de los argumentos
+     * @param args String en formato JSON con el idTicket que se quiere consultar
+     */
     async queryTicket(stubHelper: StubHelper, args: string[]): Promise<any> {
 
         const verifiedArgs = await Helpers.checkArgs<{ idTicket: string }>(args[0], Yup.object()
@@ -53,6 +75,12 @@ export class MyChaincode extends Chaincode {
         return tix;
     }
 
+    /**
+     * Crea un ticket con la información pasada en formato JSON.
+     * 
+     * @param stubHelper Objeto para comprobar la validez de los argumentos
+     * @param args String en formato JSON con toda la información del ticket
+     */
     async createTicket(stubHelper: StubHelper, args: string[]) {
         const verifiedArgs = await Helpers.checkArgs<any>(args[0], Yup.object()
             .shape({
@@ -70,12 +98,24 @@ export class MyChaincode extends Chaincode {
 
         await stubHelper.putState(verifiedArgs.idTicket, tix);
     }
+    /**
+     * Método de depuración que devuelve todo el contenido de la base de datos.
+     * 
+     * @param stubHelper Objeto para comprobar la validez de los argumentos
+     * @param args No usado en este método
+     */
     async queryAll(stubHelper: StubHelper, args: string[]): Promise<any> {
 
         return stubHelper.getQueryResultAsList(
             { selector: { docType: 'ticket' } }
         );
     }
+    /**
+     * Método para consultar en la base de datos todos los tickets de un evento por un idEvento.
+     * 
+     * @param stubHelper Objeto para comprobar la validez de los argumentos
+     * @param args String en formato JSON con el idEvento que se quiere consultar
+     */
     async queryEvent(stubHelper: StubHelper, args: string[]): Promise<any> {
         const verifiedArgs = await Helpers.checkArgs<any>(args[0], Yup.object()
             .shape({
