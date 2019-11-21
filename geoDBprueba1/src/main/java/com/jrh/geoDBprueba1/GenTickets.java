@@ -1,3 +1,8 @@
+/**
+ * @file: GenTickets.java
+ * @author: Jose Redondo Hurtado
+ * @brief: Genera una lista de tickets para el reto 1 de la prueba técnica 2Ticket de geoDB
+ */
 package com.jrh.geoDBprueba1;
 
 import java.util.stream.LongStream;
@@ -7,9 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/* import org.javatuples.Triplet; */
-
+/**
+ *  Genera una lista de tickets para el reto 1 de la prueba técnica 2Ticket de geoDB
+ */
 public class GenTickets {
+	/**
+	 * Genera una lista de objetos _2TicketData acorde con el reto 1.
+	 *
+	 * @param numTickets Cantidad de objetos en la lista
+	 * @return Lista de objetos _2TicketData acorde con el reto 1
+	 */
 	public List<_2TicketData> getTickets(long numTickets) {
 		final long maxIdTicket = ((long) Math.pow(58, 10)) - 1;
 		final int minTixEvento = 2;
@@ -37,19 +49,6 @@ public class GenTickets {
 		 * representado como 10 caracteres en Base58 y para tener aleatoriedad, vamos a
 		 * obtener los valores de tickets como números aleatorios.
 		 */
-
-
-/* 		int iTix = 0;
-		long auxLong = 0;
-		List<Long> idTicketList = new ArrayList<>();
-		while (iTix < numTickets) {
-			auxLong = (long) (random.nextFloat() * maxIdTicket);
-			// Para asegurar que el id del ticket es único
-			if (!(idTicketList.contains(auxLong))) {
-				idTicketList.add(auxLong);
-				iTix += 1;
-			}
-		} */
 
 		List<Long> idTicketList =
 				LongStream.range(0, numTickets).boxed().collect(Collectors.toCollection(ArrayList::new));
@@ -127,26 +126,5 @@ public class GenTickets {
 			outList.add(ticketData);
         }
         return outList;
-/* 		List<Triplet> outList = new ArrayList<>();
-
-		for (int n = 0; n < idTicketList.size(); n++) {
-			Triplet<long, int, boolean> triplet = Triple.with(
-				idTicketList.get(n),
-				idEventoList.get(n),
-				TixValidList.get(n));
-			outList.add(Triplet)
-		}
- */
-
-/* 		for (int n = 0; n < idEventoList.size(); n++) {
-			System.out.print(idEventoList.get(n) + " ");
-			System.out.println(TixValidList.get(n));
-		}
-
-		/* TixValidList.forEach(System.out::println); */
-		/* System.out.println(idTicketList.size());
-		System.out.println(idEventoList.size());
-		System.out.println(Base58.convertToBase58(maxIdTicket, 10)); */ 
-		/* range.forEach((i)->idEventoList.add(Base58.convertToBase58(i,10))); */
 	}
 }

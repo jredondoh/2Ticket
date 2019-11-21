@@ -1,12 +1,24 @@
+/**
+ * @file: TicketBlocks.java
+ * @author: Jose Redondo Hurtado
+ * @brief: Genera una sub-lista de tickets acorde con el reto 2 de la prueba técnica 2Ticket de geoDB
+ */
 package com.jrh.geoDBprueba1;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
 
-/* import org.javatuples.Triplet; */
-
+/**
+ *  Genera una sub-lista de tickets acorde con el reto 2 de la prueba técnica 2Ticket de geoDB
+ */
 public class TicketBlocks {
+    /**
+     * Genera una sub-lista de acuerdo con el reto 2
+     *
+     * @param TixList Lista original
+     * @return Sub-lista resultado
+     */
     public static List<_2TicketData> getBlocks(List<_2TicketData> TixList) {		
         /* 
         El tamaño de la lista se supone expresable en 32bits para esta prueba.

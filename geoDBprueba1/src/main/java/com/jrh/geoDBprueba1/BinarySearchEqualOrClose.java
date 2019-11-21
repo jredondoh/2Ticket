@@ -1,13 +1,32 @@
+/**
+ * @file: BinarySearchEqualOrClose.java
+ * @author: Jose Redondo Hurtado
+ * @brief: Fichero basado en https://www.geeksforgeeks.org/search-equal-bigger-or-smaller-in-a-sorted-array-in-java/
+ *         Ejecuta una busqueda binaria en una lista de objetos _2TicketData.
+ */
 package com.jrh.geoDBprueba1;
-/* https://www.geeksforgeeks.org/search-equal-bigger-or-smaller-in-a-sorted-array-in-java/ */
 import java.util.List;
 
+/**
+ *  Clase que ejecuta una busqueda binaria en una lista de objetos _2TicketData.
+ */
 public class BinarySearchEqualOrClose {
     enum SC { 
 		EQUAL, 
 		EQUAL_OR_BIGGER, 
 		EQUAL_OR_SMALLER 
 	};
+
+	/**
+	 * Efectúa una búsqueda binaria
+	 *
+	 * @param key Objeto a buscar
+	 * @param list Lista en la que se efectúa la búsqueda
+	 * @param start Límite inferior de la lista en la que se empieza la búsqueda
+	 * @param end Límite inferior de la lista en la que se empieza la búsqueda
+	 * @param sC Enumerado que indica el tipo de búsqueda
+	 * @return Posición en la lista del objeto buscado
+	 */
 	public static int searchEqualOrClose(
         _2TicketData key, List<_2TicketData> list, int start, int end, SC sC) 
 	{ 
@@ -35,8 +54,17 @@ public class BinarySearchEqualOrClose {
             return -1;
         } 
 		return searchEqualOrClose(list, key, start, end, sC); 
-	} 
-
+	}
+	/**
+	 * Efectúa una búsqueda binaria
+	 *
+	 * @param list Lista en la que se efectúa la búsqueda
+	 * @param key Objeto a buscar
+	 * @param start Límite inferior de la lista en la que se empieza la búsqueda
+	 * @param end Límite inferior de la lista en la que se empieza la búsqueda
+	 * @param sC Enumerado que indica el tipo de búsqueda
+	 * @return Posición en la lista del objeto buscado
+	 */
 	private static int searchEqualOrClose(List<_2TicketData> list, _2TicketData key, 
 										int start, int end, SC sC) 
 	{ 
@@ -89,10 +117,28 @@ public class BinarySearchEqualOrClose {
 		} 
 		return searchEqualOrClose(list, key, midPos + 1, end, sC); 
     }
+	/**
+	 * Efectúa una búsqueda binaria para encontrar un objeto de mismo valor o el siguiente de valor inferior.
+	 *
+	 * @param key Objeto a buscar
+	 * @param list Lista en la que se efectúa la búsqueda
+	 * @param start Límite inferior de la lista en la que se empieza la búsqueda
+	 * @param end Límite inferior de la lista en la que se empieza la búsqueda
+	 * @return Posición en la lista del objeto buscado
+	 */
     public static int searchEqualOrSmaller(_2TicketData key, List<_2TicketData> list, int start, int end)
     {
         return searchEqualOrClose(key, list, start, end, SC.EQUAL_OR_SMALLER);
     }
+	/**
+	 * Efectúa una búsqueda binaria para encontrar un objeto de mismo valor o el siguiente de valor superior.
+	 *
+	 * @param key Objeto a buscar
+	 * @param list Lista en la que se efectúa la búsqueda
+	 * @param start Límite inferior de la lista en la que se empieza la búsqueda
+	 * @param end Límite inferior de la lista en la que se empieza la búsqueda
+	 * @return Posición en la lista del objeto buscado
+	 */
     public static int searchEqualOrBigger(_2TicketData key, List<_2TicketData> list, int start, int end)
     {
         return searchEqualOrClose(key, list, start, end, SC.EQUAL_OR_BIGGER);
